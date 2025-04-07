@@ -22,5 +22,5 @@ jobs:
             name: java-sample
             path: java-app/target/*.jar
         - run: mvn --batch-mode deploy
-        env:
+          env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
