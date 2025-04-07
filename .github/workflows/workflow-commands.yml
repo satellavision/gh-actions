@@ -51,6 +51,10 @@ jobs:
         run:  echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"
       - name: Summary
         run: echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
+      - name: More summary
+        run: |
+            echo "Adding some Markdown content" >> $GITHUB_STEP_SUMMARY
+            echo "There was an error, we need to clear the previous Markdown with some new content." > $GITHUB_STEP_SUMMARY
 
   job2:
     runs-on: ubuntu-latest
