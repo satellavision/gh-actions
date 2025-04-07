@@ -49,6 +49,8 @@ jobs:
           echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"
       - name: Print the secret output (protected by a mask)
         run:  echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"
+      - name: Summary
+        run: echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
   job2:
     runs-on: ubuntu-latest
