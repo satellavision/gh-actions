@@ -16,8 +16,11 @@ jobs:
             distribution: 'temurin'
             java-version: '21'
         - name: build with maven
-          run: mvn package
+          run: mvn clean install
         - uses: actions/upload-artifact@v4
           with:
             name: java-sample
-            package: target
+            path: target/*.jar
+        - run: mvn --batch-mode deploy
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
