@@ -25,4 +25,5 @@ jobs:
               with:
                 context: ./docker-app
                 push: true
+                platforms: linux/amd64
                 tags: ghcr.io/${{ github.repository }}:latest
