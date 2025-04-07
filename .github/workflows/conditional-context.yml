@@ -23,3 +23,9 @@ jobs:
             - name: runs when pull request is opened
               if: ${{ github.event_name == 'pull_request' }}
               run: echo "Pull request opened"
+
+            - name: Print GitHub context
+              run: echo "${{ toJSON(github) }}"
+
+            - name: Print Runner context
+              run: echo "${{ toJSON(runner) }}"
