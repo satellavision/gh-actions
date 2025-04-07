@@ -12,14 +12,10 @@ jobs:
     conditional-job:
         runs-on: ubuntu-latest
         steps:
-            - name: runs when pushed to feature branch
-              if: ${{ startsWith(github.ref, 'refs/heads/feat/') }}
-              run: echo "Pushed to feature branch: ${{ github.ref_name }}"
-
             - name: runs when pushed to main
               if: ${{ github.ref == 'refs/heads/main' }}
               run: echo "Pushed to main branch"
-              
+
             - name: runs when workflow is triggered
               if: ${{ github.event_name == 'workflow_dispatch' }}
               run: echo "Workflow triggered"
@@ -27,6 +23,3 @@ jobs:
             - name: runs when pull request is opened
               if: ${{ github.event_name == 'pull_request' }}
               run: echo "Pull request opened"
-
-            - name: echo event origin
-              run: echo "Event origin: ${{ github.event_origin }}"
